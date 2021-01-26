@@ -1,43 +1,45 @@
-const MongoClient = require("mongodb").MongoClient;
+//this page can be used when you don't want to use mongoose but mongodb driver instead
 
-const url =
-  "mongodb+srv://alper:0FHHtj0olWmjswmQ@cluster0.upuok.mongodb.net/products_test?retryWrites=true&w=majority";
+// const MongoClient = require("mongodb").MongoClient;
 
-const createProduct = async (req, res, next) => {
-  const newProduct = {
-    name: req.body.name,
-    price: req.body.price,
-  };
-  const client = new MongoClient(url);
+// const url =
+//   "mongodb+srv://alper:0FHHtj0olWmjswmQ@cluster0.upuok.mongodb.net/products_test?retryWrites=true&w=majority";
 
-  try {
-    await client.connect();
-    const db = client.db();
-    const result = db.collection("products").insertOne(newProduct);
-  } catch (error) {
-    return res.json({ message: "could not store data" });
-  }
-  client.close();
+// const createProduct = async (req, res, next) => {
+//   const newProduct = {
+//     name: req.body.name,
+//     price: req.body.price,
+//   };
+//   const client = new MongoClient(url);
 
-  res.json(newProduct);
-};
+//   try {
+//     await client.connect();
+//     const db = client.db();
+//     const result = db.collection("products").insertOne(newProduct);
+//   } catch (error) {
+//     return res.json({ message: "could not store data" });
+//   }
+//   client.close();
 
-const getProducts = async (req, res, next) => {
-  const client = new MongoClient(url);
+//   res.json(newProduct);
+// };
 
-  let products;
+// const getProducts = async (req, res, next) => {
+//   const client = new MongoClient(url);
 
-  try {
-    await client.connect();
-    const db = client.db();
-    products = await db.collection("products").find().toArray();
-  } catch (error) {
-    return res.json({ message: "could not retrieve products." });
-  }
-  client.close();
+//   let products;
 
-  res.json(products);
-};
+//   try {
+//     await client.connect();
+//     const db = client.db();
+//     products = await db.collection("products").find().toArray();
+//   } catch (error) {
+//     return res.json({ message: "could not retrieve products." });
+//   }
+//   client.close();
 
-exports.createProduct = createProduct;
-exports.getProducts = getProducts;
+//   res.json(products);
+// };
+
+// exports.createProduct = createProduct;
+// exports.getProducts = getProducts;
