@@ -3,7 +3,7 @@
 // const MongoClient = require("mongodb").MongoClient;
 
 // const url =
-//   "mongodb+srv://alper:0FHHtj0olWmjswmQ@cluster0.upuok.mongodb.net/products_test?retryWrites=true&w=majority";
+//   "you-should-write-here-mongodb-uri";
 
 // const createProduct = async (req, res, next) => {
 //   const newProduct = {
